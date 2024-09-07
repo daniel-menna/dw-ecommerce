@@ -113,10 +113,10 @@ df_fato_vendas = generate_fato_vendas(
 )
 
 # Salvando os dados em arquivos CSV
-df_dim_cliente.to_csv('Dim_Cliente.csv', index=False)
-df_dim_produto.to_csv('Dim_Produto.csv', index=False)
-df_dim_localizacao.to_csv('Dim_Localizacao.csv', index=False)
-df_dim_tempo.to_csv('Dim_Tempo.csv', index=False)
-df_fato_vendas.to_csv('Fato_Vendas.csv', index=False)
+df_dim_cliente.to_csv('Dim_Cliente.csv', index=False, header=False)
+df_dim_produto.to_csv('Dim_Produto.csv', index=False, header=False)
+df_dim_localizacao.to_csv('Dim_Localizacao.csv', index=False, header=False)
+df_dim_tempo.to_csv('Dim_Tempo.csv', index=False, header=False)
+df_fato_vendas.to_csv('Fato_Vendas.csv', index=False, header=False)
 
 print("Arquivos CSV salvos com sucesso.")
