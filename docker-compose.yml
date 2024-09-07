@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # First independent container
+  darwin-dw:
+    build:
+      context: .
+      dockerfile: Dockerfile  # This points to your custom Dockerfile
+    container_name: darwin-dw
+    volumes:
+      - ./iac:/iac  # Mount local iac directory to container
+    networks:
+      - darwin_network
+    command: tail -f /dev/null  # Keeps the container running
+
+  # Second independent container (Metabase)
+  metabase:
+    image: metabase/metabase:latest  # Use the latest Metabase image
+    container_name: metabase
+    ports:
+      - "3000:3000"  # Expose Metabase on port 3000
+    volumes:
+      - ./metabase-data:/metabase-data  # Mount directory for persistent Metabase data
+    networks:
+      - metabase_network
+
+# Define separate networks for each container to ensure they don't interact unless required
+networks:
+  darwin_network:
+    driver: bridge
+
+  metabase_network:
+    driver: bridge

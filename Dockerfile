@@ -1,12 +1,15 @@
 # Use a imagem oficial do Ubuntu como base
 FROM ubuntu:latest
 
+# Mantenedor da imagem (opcional)
+LABEL maintainer="DSA"
+
 # Atualizar os pacotes do sistema e instalar dependências necessárias
 RUN apt-get update && \
-    apt-get install -y wget unzip curl git openssh-client iputils-ping
+    apt-get install -y wget unzip curl git openssh-client iputils-ping postgresql postgresql-contrib
 
 # Definir a versão do Terraform (ajuste conforme necessário)
-ENV TERRAFORM_VERSION=1.9.2
+ENV TERRAFORM_VERSION=1.9.5
 
 # Baixar e instalar Terraform
 RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_arm64.zip && \
@@ -18,7 +21,7 @@ RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform
 RUN mkdir /iac
 VOLUME /iac
 
-# Criar a pasta Downloads e instalar o AWS CLI
+# Criar a pasta Downloads e instalar o AWS CLI (para acessar a AWS)
 RUN mkdir Downloads && \
     cd Downloads && \
     curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip" && \
