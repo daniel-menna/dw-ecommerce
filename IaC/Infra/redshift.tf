@@ -77,7 +77,7 @@ resource "aws_redshift_subnet_group" "redshift_subnet_group" {
 # Configura Um Cluster Redshift 
 resource "aws_redshift_cluster" "redshift_cluster" {
   cluster_identifier = "redshift-cluster"
-  database_name      = "dsadb"
+  database_name      = "darwindb"
   master_username    = "adminuser"
   master_password    = "dsaS9curePassw2rd"
   node_type          = "dc2.large"
