@@ -109,10 +109,12 @@ Into the folder `ETL`, in the project folder (local machine), edit the file call
 To execute the schema creation, update the redshift endpoind in the comand below to your own:
 
 ```
-psql -h redshift-cluster.cjsicv1vrjsq.us-east-2.redshift.amazonaws.com -U adminuser -d dsadb -p 5439 -f model.sql
+psql -h redshift-cluster.cjsicv1vrjsq.us-east-2.redshift.amazonaws.com -U adminuser -d darwindb -p 5439 -f model.sql
 ```
 
 Now, exceute this comand into your container, in the folder `ETL`.
+
+It will be required the `db password`. Inform the same defined into `redshift.tf`file.
 
 ## Outputs
 Now, it is possible to check the tables created in Redshift using the web console.
@@ -121,6 +123,15 @@ Now, it is possible to check the tables created in Redshift using the web consol
 Go to the [http://localhost:3000/](http://localhost:3000/) and create your local account. When the `Add your data` option shows up, choose `Redshift`, and enter your details. It will ask for a `Display name`, I recomend `Ecommerce-DW` or something like that. 
 
 Include the database credentials and your are ready to analyze the data!
+
+## Destroyin the project
+After imnporting connecting Metabase and creating your Dashboard, it is time to destroy you project. So, return to the Infra folder, using your terminal in Docker.
+```
+cd ..\Infra
+terraform destroy
+```
+
+All the infrastrcture will be destroyed. However, as the bucket was created out of Terraform automation, you can re-run the steps anytime and create your environment again.
 
 ## Contact
 - [Linkedin](https://www.linkedin.com/in/daniel-menna)
