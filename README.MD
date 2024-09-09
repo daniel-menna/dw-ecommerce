@@ -44,3 +44,29 @@ git clone https://www.github.com/daniel-menna/dw-ecommerce.git
 Open the folder with your code editor.
 
 ## Preparing Everithing.
+To run this project without any headake, it is necessary to follow few steps:
+
+### Create a S3 Bucket
+In your browser go to [https://aws.amazon.com//s3/](https://aws.amazon.com//s3/) and create a bucket, recomended something like: `ecommerce-dw-<YOUR-ID-AWS>`.
+
+Copy your bucket name and save it for later.
+
+### Generate your Data Source
+In the project folder, you can generate your data source following these steps:
+- Access the `src` folder;
+- Run the Python script called `faker_datas.py`.
+    ```
+    python run faker_datas.py
+    ```
+    Note: It is necessary to have Python installed in your environment. If you don't want to run this script, you can find sample file in the `data` folder, in this repository.
+- Create a folder `data` in you S3 Bucket and upload these files there.
+
+
+
+
+### Build the project
+Execute the following command in the terminal:
+```
+docker-compose up
+```
+
