@@ -12,7 +12,7 @@ The company aims to build a data analytics system that allows detailed collectio
 ### Details of the Company’s Operations:
 The company sells technology products to its customers, who may be either individual consumers or businesses. Each sale is associated with a specific customer and takes place in a specific geographic location. The system needs to record the product sold, the quantity, the sale price, and the cost of the product.
 
-Further details about how this project was designed are availables in my [Article at Medium](https://medium.com/@data-menna/modeling-a-dw-for-an-e-commerce-company-c51bfc45cd5d]
+Further details about how this project was designed are availables in my [Article at Medium](https://medium.com/@data-menna/modeling-a-dw-for-an-e-commerce-company-c51bfc45cd5d)
 
 ## Tech Stack Used
 - Python
